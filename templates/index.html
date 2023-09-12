@@ -62,13 +62,12 @@
       <h1>Victor Chibuogwu. C</h1>
       <p><span class="typed" data-typed-items="aka Emekadefirst, I'm a Backend developer, and also Python developer"></span></p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://twitter.com/Vikchukwuemeka?t=hdlyPI0Lkx9kwiTjN4aGDw&s=09" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://github.com/emekadefirst/" class="instagram"><i class="bx bxl-github"></i></a>
+        <a href="mailto:emekadefirst@gmail.com" class="instagram"><i class="bx bxl-gmail"></i></a>
+        <a href="https://www.linkedin.com/in/victorhibuogwu33" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
-      <a download href="mycv.pdf" class="btn btn-primary download-btn my-5">Download CV</a>
+      <a download href="mycv.pdf" class="btn btn-primary download-btn my-5">Download Resume</a>
     </div>
   </section><!-- End Hero -->
 
@@ -270,38 +269,42 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
+
+        {% for website in websites %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              {% for webbsite in websites %}
-              {% comment %} <img src="{{ website.image.url }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p> 
-                <div class="portfolio-links">
-                  <a href="{% static  'assets/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="/info/api/{{ website.id }}/" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              {% comment %} <p>{{ website.name }}</p> {% endcomment %}
+                <img src="{{ website.image.url }}" class="img-fluid" alt="{{ websits.name }}">
+                <div class="portfolio-info">
+                  <h4>{{ website.name }}</h4>
+                   
+                  <div class="portfolio-links">
+                    {% comment %} <a href="/info/website/{{ website.id }}/" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a> {% endcomment %}
+                    <a href="/info/website/{{ website.id }}/" ><i class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div> {% endcomment %}
-          {% comment %} <img src="{{ website.image.url }}" class="img-fluid" alt=""> {% endcomment %}
-          <h5>{{ website.title }}</h5>
-          {% endfor %}
-
-          {% comment %} <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          </div> 
+        {% endfor %}
+           
+        {% for api in apis %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
               <img src="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Web 3</h4>
                 <p>Web</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="/info/api/{{ api.id }}/" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                  {% comment %} <a href="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a> {% endcomment %}
+                  <a href="/info/api/{{ api.id }}/"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
+        {% endfor %}
           
+        {% for script in scripts %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-scripts">
             <div class="portfolio-wrap">
               <img src="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" class="img-fluid" alt="">
@@ -309,13 +312,15 @@
                 <h4>Card 2</h4>
                 <p>Card</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                  <a href="/info/api/{{ scripts.id }}/" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                  {% comment %} <a href="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a> {% endcomment %}
+                  <a href="/info/api/{{ scripts.id }}/"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-        </div> {% endcomment %}
+        {% endfor %}
+        </div> 
+      
 
       </div>
     </section><!-- End Portfolio Section -->
@@ -328,11 +333,11 @@
       <h3>Victor Chibuogwu</h3>
       <p> All Thanks to <a href="https://bootstrapmade.com">Bootstrapmade</a> for making their bootstrap template free to use. Tho, I made few adjustments 😂</p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://twitter.com/Vikchukwuemeka?t=hdlyPI0Lkx9kwiTjN4aGDw&s=09
+" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://github.com/emekadefirst/" class="github"><i class="bx bxl-instagram"></i></a>
+        <a href="mailto:emekadefirst@gmail.com" class="gmail"><i class="bx bxl-skype"></i></a>
+        <a href="https://www.linkedin.com/in/victorhibuogwu33" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
       <div class="copyright">
         Built by <strong><span>Emekadefirst</span></strong>

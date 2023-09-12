@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -76,11 +77,19 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'my_portfolio_aa1o',  # Replace with your PostgreSQL database name
+        'USER': 'my_portfolio_aa1o_user',  # Replace with your PostgreSQL database user
+        # Replace with your PostgreSQL database password
+        'PASSWORD': 'enS0Zf66n4glshO1Lc8pchmzR09ak8Hf',
+        'HOST': 'localhost',  # Replace with the host where your PostgreSQL server is running
+        'PORT': '5432',  # Replace with the port number for your PostgreSQL server
     }
 }
 
+
+DATABASES['default'] = dj_database_url.parse(
+    "postgres://my_portfolio_aa1o_user:enS0Zf66n4glshO1Lc8pchmzR09ak8Hf@dpg-ck0845b6fquc73cuj4tg-a.oregon-postgres.render.com/my_portfolio_aa1o")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

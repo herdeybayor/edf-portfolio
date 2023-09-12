@@ -27,3 +27,7 @@ def info(request, model_name, pk):
 
     context = {'model': model}
     return render(request, 'portfolio-details.html', context)
+
+
+def details(request):
+    return render(request, 'portfolio-details.html')
